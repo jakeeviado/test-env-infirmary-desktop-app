@@ -212,9 +212,9 @@ public class InfirmarySystemApplication {
 
                 for (Student record : medicalRecords) {
                     System.out.println();
-                    System.out.println("Firstname             : " + record.getFirstName());
-                    System.out.println("Middlename            : " + record.getMiddleName());
-                    System.out.println("Lastname              : " + record.getLastName());
+                    System.out.println("First name             : " + record.getFirstName());
+                    System.out.println("Middle name            : " + record.getMiddleName());
+                    System.out.println("Last name              : " + record.getLastName());
                     System.out.println("Age                   : " + record.getAge());
                     System.out.println("Gender                : " + record.getGender());
                     System.out.println("Symptoms              : " + record.getSymptoms());
