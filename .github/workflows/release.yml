@@ -32,4 +32,5 @@ jobs:
           version-file: "version.properties"
           extra-files: |
             version.properties
+          pre-release: "SNAPSHOT"
 
