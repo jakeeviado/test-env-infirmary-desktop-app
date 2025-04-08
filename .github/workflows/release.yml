@@ -21,16 +21,26 @@ jobs:
       - name: Effect only on new commits
         run: |
           BOUNDARY_COMMIT=$(git rev-list -n 1 --before="2025-04-09" master)
-          echo "BOUNDARY_COMMIT=$BOUNDARY_COMMIT" >> $GITHUB_ENV
+          echo "boundary_commit=$BOUNDARY_COMMIT" >> $GITHUB_OUTPUT
 
       - name: Release Please
         uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
-          release-type: simple
-          last-release-sha: ${{ steps.boundary.outputs.boundary_commit }}
+          release-type: java
+          last-release-sha: ${{ env.BOUNDARY_COMMIT }}
+          pull-request-title-pattern: "chore: release ${version}"
           version-file: "version.properties"
           extra-files: |
             version.properties
           prerelease: "SNAPSHOT"
 
+
+          changelog-types: |
+            {"feat": {"section": "Features", "hidden": false}, 
+             "fix": {"section": "Bug Fixes", "hidden": false},
+             "chore": {"section": "Miscellaneous", "hidden": false},
+             "docs": {"section": "Documentation", "hidden": false},
+             "perf": {"section": "Performance Improvements", "hidden": false},
+             "refactor": {"section": "Code Refactoring", "hidden": false}}
+          versions-file-section-name: "version"
