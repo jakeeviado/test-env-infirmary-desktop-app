@@ -27,7 +27,7 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
-          release-type: simple
+          release-type: java
           last-release-sha: ${{ steps.boundary.outputs.boundary_commit }}
           version-file: "version.properties"
           extra-files: |
