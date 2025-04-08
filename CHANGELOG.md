@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/jakeeviado/test-env-infirmary-desktop-app/compare/v3.0.0...v4.0.0) (2025-04-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* workflow configs ([#15](https://github.com/jakeeviado/test-env-infirmary-desktop-app/issues/15))
+
+### Bug Fixes
+
+* workflow configs ([#15](https://github.com/jakeeviado/test-env-infirmary-desktop-app/issues/15)) ([4db7a51](https://github.com/jakeeviado/test-env-infirmary-desktop-app/commit/4db7a51a58cf3509ec3764c87894af407e733abe))
+
 ## [3.0.0](https://github.com/jakeeviado/test-env-infirmary-desktop-app/compare/v2.0.0...v3.0.0) (2025-04-08)
 
 
