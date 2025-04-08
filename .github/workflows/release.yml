@@ -30,6 +30,7 @@ jobs:
           release-type: java
           last-release-sha: ${{ steps.boundary.outputs.boundary_commit }}
           version-file: "version.properties"
+          parse-version-from-file-regex: "version=(.*)"
           extra-files: |
             version.properties
 
