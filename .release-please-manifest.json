@@ -1,5 +1,6 @@
 {
   "extra-files": [
     "version.properties"
-  ]
+  ],
+  ".": "4.0.1"
 }
