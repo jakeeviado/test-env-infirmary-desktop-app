@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class MedicineInventoryFacadeImpl implements MedicineInventoryFacade {
 
-    private MedicineInventoryDao medicineInventoryDao = new MedicineInventoryDaoImpl();
+    private final MedicineInventoryDao medicineInventoryDao = new MedicineInventoryDaoImpl();
 
     @Override
     public List<Medicine> findAllMedicine() {
