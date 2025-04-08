@@ -18,8 +18,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get boundary commit
-        id: boundary
+      - name: Effect only on new commits
         run: |
           BOUNDARY_COMMIT=$(git rev-list -n 1 --before="2025-04-09" master)
           echo "boundary_commit=$BOUNDARY_COMMIT" >> $GITHUB_OUTPUT
@@ -34,6 +33,9 @@ jobs:
           version-file: "version.properties"
           extra-files: |
             version.properties
+          prerelease: "SNAPSHOT"
+
+
           changelog-types: |
             {"feat": {"section": "Features", "hidden": false}, 
              "fix": {"section": "Bug Fixes", "hidden": false},
