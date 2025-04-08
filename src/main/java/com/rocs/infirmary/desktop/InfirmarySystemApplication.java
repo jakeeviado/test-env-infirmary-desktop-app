@@ -187,60 +187,52 @@ public class InfirmarySystemApplication {
             }
 
             case 6: {
-
-                try{
-                    MedicineInventoryFacade inventoryFacade = new MedicineInventoryFacadeImpl();
-                    List<Medicine> medicineInventoryItems = inventoryFacade.findAllMedicine();
-                    if (medicineInventoryItems.isEmpty()) {
-                        System.out.println("The list of items is empty.");
-                    } else {
-                        System.out.println("LIST OF ITEMS:");
-                        {
-                            for (Medicine medicine : medicineInventoryItems) {
-                                System.out.println("Name of Medicine:  " + medicine.getItemName() +
-                                        "\nItem Type:    " + medicine.getItemType() +
-                                        "\nDescription:  " + medicine.getDescription() +
-                                        "\nStock Level:  " + medicine.getQuantity() +
-                                        "\nExpiry date:  " + medicine.getExpirationDate() + "\n");
-                            }
+                MedicineInventoryFacade inventoryFacade = new MedicineInventoryFacadeImpl();
+                List<Medicine> medicineInventoryItems = inventoryFacade.findAllMedicine();
+                if (medicineInventoryItems.isEmpty()) {
+                    System.out.println("The list of items is empty.");
+                } else {
+                    System.out.println("LIST OF ITEMS:");
+                    {
+                        for (Medicine medicine : medicineInventoryItems) {
+                            System.out.println("Name of Medicine:  " + medicine.getItemName() +
+                                    "\nItem Type:    " + medicine.getItemType() +
+                                    "\nDescription:  " + medicine.getDescription() +
+                                    "\nStock Level:  " + medicine.getQuantity() +
+                                    "\nExpiry date:  " + medicine.getExpirationDate() + "\n");
                         }
                     }
-                    break;
-                } catch (RuntimeException e) {
-                    System.out.println("Error: " + e.getMessage());
                 }
-
-
+                break;
             }
             case 7: {
-                try{
-                    StudentMedicalRecordFacadeImpl studentMedical = new StudentMedicalRecordFacadeImpl();
-                    List<Student> medicalRecords = studentMedical.readAllStudentMedicalRecords();
 
-                    for (Student record : medicalRecords) {
-                        System.out.println("First name             : " + record.getFirstName());
-                        System.out.println("Middle name            : " + record.getMiddleName());
-                        System.out.println("Last name              : " + record.getLastName());
-                        System.out.println("Age                   : " + record.getAge());
-                        System.out.println("Gender                : " + record.getGender());
-                        System.out.println("Symptoms              : " + record.getSymptoms());
-                        System.out.println("Temperature Readings  : " + record.getTemperatureReadings());
-                        System.out.println("Visit Date            : " + record.getVisitDate());
-                        System.out.println("Treatment             : " + record.getTreatment());
-                    }
-                    break;
-                } catch (RuntimeException e) {
-                    System.out.println("Error: " + e.getMessage());
+                StudentMedicalRecordFacadeImpl studentMedical = new StudentMedicalRecordFacadeImpl();
+                List<Student> medicalRecords = studentMedical.readAllStudentMedicalRecords();
+
+                for (Student record : medicalRecords) {
+                    System.out.println();
+                    System.out.println("First name             : " + record.getFirstName());
+                    System.out.println("Middle name            : " + record.getMiddleName());
+                    System.out.println("Lastname              : " + record.getLastName());
+                    System.out.println("Age                   : " + record.getAge());
+                    System.out.println("Gender                : " + record.getGender());
+                    System.out.println("Symptoms              : " + record.getSymptoms());
+                    System.out.println("Temperature Readings  : " + record.getTemperatureReadings());
+                    System.out.println("Visit Date            : " + record.getVisitDate());
+                    System.out.println("Treatment             : " + record.getTreatment());
+
+                    System.out.println();
                 }
-
+                break;
             }
             case 8: {
-                try{
-                    StudentMedicalRecordFacadeImpl studentMedicalRecordFacade = new StudentMedicalRecordFacadeImpl();
-                    Scanner sc = new Scanner(System.in);
 
-                    System.out.print("Enter the LRN of student to delete: ");
-                    long lrn = sc.nextLong();
+                StudentMedicalRecordFacadeImpl studentMedicalRecordFacade = new StudentMedicalRecordFacadeImpl();
+                Scanner sc = new Scanner(System.in);
+
+                System.out.print("Enter the LRN of student to delete: ");
+                long lrn = sc.nextLong();
                     System.out.print("Are you sure you want to delete this record? This action cannot be undone. (Select 1. for YES and 2. for NO/CANCEL): ");
                     int confirmation = sc.nextInt();
                     if (confirmation == 1) {
@@ -250,20 +242,19 @@ public class InfirmarySystemApplication {
                     else if (confirmation == 2) {
                         System.out.println("Cancel the Deletion");
 
-                    } else {
+                    }else {
                         System.out.println("invalid input");
                     }
 
-                    break;
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
+
+
+                break;
             }
 
-            default:
-                System.out.println("Invalid choice. Please select a valid option.");
-        }
-    }
+                default:
+                    System.out.println("Invalid choice. Please select a valid option.");
+                }
+            }
 
     private static void displayCommonAilmentsReport(List<CommonAilmentsReport> reports, Date startDate, Date endDate, String gradeLevel, String section) {
         if (reports == null || reports.isEmpty()) {
