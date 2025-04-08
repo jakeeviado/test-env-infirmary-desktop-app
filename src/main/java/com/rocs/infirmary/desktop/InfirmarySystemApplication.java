@@ -227,12 +227,12 @@ public class InfirmarySystemApplication {
                 break;
             }
             case 8: {
+                try{
+                    StudentMedicalRecordFacadeImpl studentMedicalRecordFacade = new StudentMedicalRecordFacadeImpl();
+                    Scanner sc = new Scanner(System.in);
 
-                StudentMedicalRecordFacadeImpl studentMedicalRecordFacade = new StudentMedicalRecordFacadeImpl();
-                Scanner sc = new Scanner(System.in);
-
-                System.out.print("Enter the LRN of student to delete: ");
-                long lrn = sc.nextLong();
+                    System.out.print("Enter the LRN of student to delete: ");
+                    long lrn = sc.nextLong();
                     System.out.print("Are you sure you want to delete this record? This action cannot be undone. (Select 1. for YES and 2. for NO/CANCEL): ");
                     int confirmation = sc.nextInt();
                     if (confirmation == 1) {
@@ -246,15 +246,16 @@ public class InfirmarySystemApplication {
                         System.out.println("invalid input");
                     }
 
-
-
-                break;
-            }
-
-                default:
-                    System.out.println("Invalid choice. Please select a valid option.");
+                    break;
+                } catch (Exception e) {
+                    System.out.println(e);
                 }
             }
+
+            default:
+                System.out.println("Invalid choice. Please select a valid option.");
+        }
+    }
 
     private static void displayCommonAilmentsReport(List<CommonAilmentsReport> reports, Date startDate, Date endDate, String gradeLevel, String section) {
         if (reports == null || reports.isEmpty()) {
