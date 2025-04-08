@@ -23,8 +23,7 @@ public class DashboardFacadeImpl implements DashboardFacade {
 
     @Override
     public List<LowStockReport> findAllLowStockMedicine() {
-        List<LowStockReport> lowStockItems = dashboard.getAllLowStockMedicine();
-        return lowStockItems;
+        return dashboard.getAllLowStockMedicine();
     }
 
     @Override
@@ -34,13 +33,11 @@ public class DashboardFacadeImpl implements DashboardFacade {
 
     @Override
     public List<FrequentVisitReport> generateFrequentVisitReport(Date startDate, Date endDate, String gradeLevel) {
-        List<FrequentVisitReport> frequentVisitReportList = this.dashboard.getFrequentVisitReports(gradeLevel, startDate, endDate);
-        return frequentVisitReportList;
+        return this.dashboard.getFrequentVisitReports(gradeLevel, startDate, endDate);
     }
 
     @Override
     public List<MedicationTrendReport> generateMedicationReport(Date startDate, Date endDate) {
-        List<MedicationTrendReport> medicationTrendReportList = dashboard.getMedicationTrendReport(startDate, endDate);
-        return medicationTrendReportList;
+        return dashboard.getMedicationTrendReport(startDate, endDate);
     }
 }

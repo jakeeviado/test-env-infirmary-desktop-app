@@ -26,20 +26,19 @@ public class StudentMedicalRecordFacadeImpl implements StudentMedicalRecordFacad
 
     @Override
     public List<Student> readAllStudentMedicalRecords() {
-        List<Student> medicalRecords = this.studentMedRecord.getAllStudentMedicalRecords();
 
-        return medicalRecords;
+        return this.studentMedRecord.getAllStudentMedicalRecords();
     }
 
     /**
      * This is used to delete a student's medical record based on their Learner Reference Number (LRN).
-     *
+     * <p>
      * boolean returns true if the deletion was successful, otherwise false.
      */
    @Override
-   public boolean deleteStudentMedicalRecordByLrn(long LRN) {
-        return this.studentMedRecord.deleteStudentMedicalRecordByLrn(LRN);
-    }
+   public void deleteStudentMedicalRecordByLrn(long LRN) {
+       this.studentMedRecord.deleteStudentMedicalRecordByLrn(LRN);
+   }
 }
 
 

@@ -32,5 +32,5 @@ public interface StudentMedicalRecordFacade {
      * The LRN is a unique identifier assigned to each student. This value is used to locate and delete the corresponding medical record.
      */
 
-    boolean deleteStudentMedicalRecordByLrn(long LRN);
+    void deleteStudentMedicalRecordByLrn(long LRN);
 }
